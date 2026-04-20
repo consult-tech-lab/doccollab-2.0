@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Activity, Pill, FileText, AlertTriangle, ClipboardList, Heart, Wind, Thermometer, Droplets } from 'lucide-react';
+import { Activity, Pill, FileText, AlertTriangle, ClipboardList, Heart, Wind, Thermometer, Droplets, PenLine } from 'lucide-react';
+import RoundsNotepad from '@/components/workspace/RoundsNotepad';
 
 const CHART_DATA = {
   'pt-001': {
@@ -94,9 +95,10 @@ const TABS = [
   { id: 'meds', label: 'Medications', icon: Pill },
   { id: 'labs', label: 'Labs', icon: ClipboardList },
   { id: 'notes', label: 'Notes & Plan', icon: FileText },
+  { id: 'rounds', label: 'Rounds Note', icon: PenLine },
 ];
 
-export default function PatientChart({ patient }) {
+export default function PatientChart({ patient, onNoteAdded }) {
   const [tab, setTab] = useState('vitals');
   const data = CHART_DATA[patient.id] || CHART_DATA['pt-001'];
 
@@ -216,6 +218,10 @@ export default function PatientChart({ patient }) {
                 <p className="text-sm text-foreground leading-relaxed">{data.plan}</p>
               </div>
             </div>
+          )}
+
+          {tab === 'rounds' && (
+            <RoundsNotepad patient={patient} onNoteAdded={onNoteAdded} />
           )}
         </motion.div>
       </AnimatePresence>

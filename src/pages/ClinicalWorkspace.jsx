@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Activity, Users, Clock, Lock, Shield, Menu, X, ChevronRight, Bell } from 'lucide-react';
+import { Activity, Users, Lock, Shield, Menu, X, ClipboardList, Stethoscope } from 'lucide-react';
 import PatientList, { PATIENTS } from '@/components/workspace/PatientList';
 import PatientChart from '@/components/workspace/PatientChart';
 import WorkspaceChat from '@/components/workspace/WorkspaceChat';
 import QuickActions from '@/components/workspace/QuickActions';
 import AmbientScribePanel from '@/components/workspace/AmbientScribePanel';
 import AlertBanner from '@/components/workspace/AlertBanner';
+import RoundsTranscript from '@/components/workspace/RoundsTranscript';
 import Logo from '@/components/brand/Logo';
 
 const SEED_MESSAGES = [
@@ -21,9 +22,15 @@ export default function ClinicalWorkspace() {
   const [showScribe, setShowScribe] = useState(false);
   const [alert, setAlert] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [mainTab, setMainTab] = useState('chart'); // 'chart' | 'transcript'
+  const [transcriptTick, setTranscriptTick] = useState(0);
 
   const handleAlert = (pt) => {
     setAlert(`All care team members alerted for ${pt.name} — Room ${pt.room}`);
+  };
+
+  const handleNoteAdded = () => {
+    setTranscriptTick(t => t + 1);
   };
 
   const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -80,39 +87,74 @@ export default function ClinicalWorkspace() {
           </div>
         </aside>
 
-        {/* CENTER: Chart + Quick Actions */}
+        {/* CENTER: Main workspace area */}
         <main className="flex-1 flex flex-col overflow-hidden min-w-0">
-          {/* Chart area */}
-          <div className="flex-1 overflow-hidden relative">
-            {selectedPatient ? (
-              <>
-                <div className="h-full overflow-hidden">
-                  <PatientChart patient={selectedPatient} />
-                </div>
-                <AnimatePresence>
-                  {showScribe && (
-                    <AmbientScribePanel
-                      patient={selectedPatient}
-                      onClose={() => setShowScribe(false)}
-                    />
-                  )}
-                </AnimatePresence>
-              </>
-            ) : (
-              <div className="h-full flex items-center justify-center">
-                <p className="text-muted-foreground text-sm">Select a patient</p>
-              </div>
-            )}
+
+          {/* Main tab bar */}
+          <div className="flex-shrink-0 flex items-center gap-1 px-4 pt-3 pb-0 border-b border-border/60 bg-background">
+            <button
+              onClick={() => setMainTab('chart')}
+              className={`flex items-center gap-1.5 px-4 py-2 text-xs font-semibold border-b-2 transition-colors ${
+                mainTab === 'chart'
+                  ? 'border-primary text-primary'
+                  : 'border-transparent text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              <Stethoscope className="w-3.5 h-3.5" /> Patient Chart
+            </button>
+            <button
+              onClick={() => { setMainTab('transcript'); setTranscriptTick(t => t + 1); }}
+              className={`flex items-center gap-1.5 px-4 py-2 text-xs font-semibold border-b-2 transition-colors ${
+                mainTab === 'transcript'
+                  ? 'border-primary text-primary'
+                  : 'border-transparent text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              <ClipboardList className="w-3.5 h-3.5" /> Rounds Transcript
+            </button>
           </div>
 
-          {/* Quick actions bar */}
-          {selectedPatient && (
-            <div className="flex-shrink-0 border-t border-border/60 bg-background/80 px-4 py-3">
-              <QuickActions
-                patient={selectedPatient}
-                onLaunchAI={() => setShowScribe(true)}
-                onAlert={handleAlert}
-              />
+          {mainTab === 'chart' && (
+            <>
+              {/* Chart area */}
+              <div className="flex-1 overflow-hidden relative">
+                {selectedPatient ? (
+                  <>
+                    <div className="h-full overflow-hidden">
+                      <PatientChart patient={selectedPatient} onNoteAdded={handleNoteAdded} />
+                    </div>
+                    <AnimatePresence>
+                      {showScribe && (
+                        <AmbientScribePanel
+                          patient={selectedPatient}
+                          onClose={() => setShowScribe(false)}
+                        />
+                      )}
+                    </AnimatePresence>
+                  </>
+                ) : (
+                  <div className="h-full flex items-center justify-center">
+                    <p className="text-muted-foreground text-sm">Select a patient</p>
+                  </div>
+                )}
+              </div>
+
+              {/* Quick actions bar */}
+              {selectedPatient && (
+                <div className="flex-shrink-0 border-t border-border/60 bg-background/80 px-4 py-3">
+                  <QuickActions
+                    patient={selectedPatient}
+                    onLaunchAI={() => setShowScribe(true)}
+                    onAlert={handleAlert}
+                  />
+                </div>
+              )}
+            </>
+          )}
+
+          {mainTab === 'transcript' && (
+            <div className="flex-1 overflow-hidden">
+              <RoundsTranscript refreshTick={transcriptTick} />
             </div>
           )}
         </main>

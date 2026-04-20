@@ -2,11 +2,11 @@ import React from 'react';
 import { Activity, AlertTriangle, CheckCircle2, Clock } from 'lucide-react';
 
 const PATIENTS = [
-  { id: 'pt-001', name: 'James Okafor', age: 62, room: '4B', dx: 'CHF Exacerbation', acuity: 'high', bp: '142/88', hr: 84, spo2: 94, status: 'active' },
-  { id: 'pt-002', name: 'Maria Delgado', age: 47, room: '4C', dx: 'Post-op Day 2 · Hip Arthroplasty', acuity: 'medium', bp: '118/74', hr: 72, spo2: 98, status: 'stable' },
-  { id: 'pt-003', name: 'Robert Chen', age: 71, room: '5A', dx: 'COPD Exacerbation', acuity: 'high', bp: '138/82', hr: 92, spo2: 89, status: 'watch' },
-  { id: 'pt-004', name: 'Priya Nair', age: 55, room: '5B', dx: 'Sepsis — Day 3 Antibiotics', acuity: 'high', bp: '96/58', hr: 108, spo2: 96, status: 'critical' },
-  { id: 'pt-005', name: 'Thomas Webb', age: 38, room: '3D', dx: 'Appendectomy — Recovering', acuity: 'low', bp: '122/78', hr: 68, spo2: 99, status: 'stable' },
+  { id: 'pt-001', name: 'James Okafor', age: 62, room: '4B', dx: 'CHF Exacerbation', acuity: 'high', bp: '142/88', hr: 84, spo2: 94, status: 'active', mrn: 'MRN-10042', payer: 'Medicare' },
+  { id: 'pt-002', name: 'Maria Delgado', age: 47, room: '4C', dx: 'Post-op Day 2 · Hip Arthroplasty', acuity: 'medium', bp: '118/74', hr: 72, spo2: 98, status: 'stable', mrn: 'MRN-10091', payer: 'BlueCross' },
+  { id: 'pt-003', name: 'Robert Chen', age: 71, room: '5A', dx: 'COPD Exacerbation', acuity: 'high', bp: '138/82', hr: 92, spo2: 89, status: 'watch', mrn: 'MRN-10103', payer: 'Medicaid' },
+  { id: 'pt-004', name: 'Priya Nair', age: 55, room: '5B', dx: 'Sepsis — Day 3 Antibiotics', acuity: 'high', bp: '96/58', hr: 108, spo2: 96, status: 'critical', mrn: 'MRN-10217', payer: 'Aetna' },
+  { id: 'pt-005', name: 'Thomas Webb', age: 38, room: '3D', dx: 'Appendectomy — Recovering', acuity: 'low', bp: '122/78', hr: 68, spo2: 99, status: 'stable', mrn: 'MRN-10334', payer: 'UnitedHealth' },
 ];
 
 const acuityConfig = {
