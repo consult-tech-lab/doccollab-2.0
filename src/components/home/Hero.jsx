@@ -35,7 +35,7 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
-              A HIPAA-focused SaaS prototype for medical professionals — enabling secure, scalable
+              A HIPAA-focused SaaS prototype for healthcare professionals — enabling secure, scalable
               collaboration during patient rounds, conferences, and remote care. Now with ambient AI,
               touch-first UI, and FHIR-ready integration.
             </p>
