@@ -13,6 +13,9 @@ import AmbientAI from '@/pages/AmbientAI';
 import Session from '@/pages/Session';
 import Compliance from '@/pages/Compliance';
 import Devices from '@/pages/Devices';
+import Learn from '@/pages/Learn';
+import EvidenceTools from '@/pages/EvidenceTools';
+import NotesVault from '@/pages/NotesVault';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -43,6 +46,9 @@ const AuthenticatedApp = () => {
         <Route path="/session" element={<Session />} />
         <Route path="/compliance" element={<Compliance />} />
         <Route path="/devices" element={<Devices />} />
+        <Route path="/learn" element={<Learn />} />
+        <Route path="/evidence" element={<EvidenceTools />} />
+        <Route path="/notes-vault" element={<NotesVault />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>

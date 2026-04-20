@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mic, MicOff, Sparkles, Tag, Copy, Check, RotateCcw } from 'lucide-react';
+import { Mic, MicOff, Sparkles, Tag, Copy, Check, RotateCcw, Database } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { saveNoteToVault } from '@/pages/NotesVault';
 
 const TRANSCRIPT_SCRIPT = [
   { t: 800, who: 'Dr.', text: 'Good morning. How have you been feeling since our last visit?' },
@@ -61,6 +62,7 @@ export default function AmbientDemo() {
             const t3 = setTimeout(() => {
               setSoap(SOAP);
               setGenerating(false);
+              saveNoteToVault(SOAP, CODES, 'Ambient AI Demo Session');
             }, 2200);
             timers.current.push(t3);
           }, 1200);

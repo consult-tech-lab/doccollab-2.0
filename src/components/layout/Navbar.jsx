@@ -7,8 +7,11 @@ import { Button } from '@/components/ui/button';
 
 const links = [
   { to: '/', label: 'Home' },
+  { to: '/learn', label: '🎓 Training' },
   { to: '/features', label: 'Features' },
   { to: '/ambient-ai', label: 'Ambient AI' },
+  { to: '/notes-vault', label: 'Notes Vault' },
+  { to: '/evidence', label: 'Evidence Tools' },
   { to: '/session', label: 'Live Session' },
   { to: '/compliance', label: 'Security' },
   { to: '/devices', label: 'Devices' },
