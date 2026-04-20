@@ -16,6 +16,7 @@ import Devices from '@/pages/Devices';
 import Learn from '@/pages/Learn';
 import EvidenceTools from '@/pages/EvidenceTools';
 import NotesVault from '@/pages/NotesVault';
+import ClinicalWorkspace from '@/pages/ClinicalWorkspace';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -49,6 +50,7 @@ const AuthenticatedApp = () => {
         <Route path="/learn" element={<Learn />} />
         <Route path="/evidence" element={<EvidenceTools />} />
         <Route path="/notes-vault" element={<NotesVault />} />
+        <Route path="/workspace" element={<ClinicalWorkspace />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>

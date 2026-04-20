@@ -41,9 +41,9 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-3 pt-2">
-              <Link to="/session">
+              <Link to="/workspace">
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full gap-2 h-12 px-6 glow-primary">
-                  Start Live Session <ArrowRight className="w-4 h-4" />
+                  Launch Demo <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
               <Link to="/ambient-ai">

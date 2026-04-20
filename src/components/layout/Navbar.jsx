@@ -12,6 +12,7 @@ const links = [
   { to: '/ambient-ai', label: 'Ambient AI' },
   { to: '/notes-vault', label: 'Notes Vault' },
   { to: '/evidence', label: 'Evidence Tools' },
+  { to: '/workspace', label: '🏥 Workspace' },
   { to: '/session', label: 'Live Session' },
   { to: '/compliance', label: 'Security' },
   { to: '/devices', label: 'Devices' },
@@ -45,7 +46,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <Link to="/session" className="hidden sm:block">
+          <Link to="/workspace" className="hidden sm:block">
             <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground gap-1.5 rounded-full">
               Launch Demo <ArrowRight className="w-3.5 h-3.5" />
             </Button>
