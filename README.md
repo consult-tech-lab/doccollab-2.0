@@ -1,7 +1,7 @@
 
 ## DocCollab 2.0 – Secure Clinical Collaboration Prototype  
 **Overview and Strategic Vision**  
-DocCollab 2.0 is a HIPAA-compliant SaaS prototype designed to transform clinical collaboration. As a Health IT Clinical Specialist, I see this platform as a strategic evolution from outdated, cumbersome documentation methods to a seamless, touch-first workspace. By integrating Ambient AI with efficient team coordination, DocCollab 2.0 facilitates passive documentation, allowing care teams to focus on patient interactions.
+DocCollab 2.0 is a HIPAA-compliant SaaS prototype designed to transform clinical collaboration. As a Health IT Clinical Specialist, I see this platform as a strategic evolution from outdated, cumbersome documentation methods to a seamless workspace. By integrating Ambient AI with efficient team coordination, DocCollab 2.0 facilitates passive documentation, allowing care teams to focus on patient interactions.
 
 ### Core Mission  
 The primary aim of DocCollab 2.0 is to bridge the "Productivity Gap" often seen after EHR implementation. Rather than relying on manual workflows or clunky interfaces, this platform provides:
