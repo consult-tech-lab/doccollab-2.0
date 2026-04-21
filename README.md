@@ -41,7 +41,7 @@ DocCollab 2.0 tackles clinician burnout by significantly reducing cognitive load
 
 By promoting a "culture of the encounter," DocCollab 2.0 empowers clinicians to focus on patient care rather than documentation burdens.
 
-###To explore the app's capabilities, click on any of the links provided.
+###To discover the features of the app, please check out our gallery below.
 
 <img width="1358" height="636" alt="doc_collab_2 0_image-section_1" src="https://github.com/user-attachments/assets/aff31ea1-df11-454d-93aa-43445431623d" />
 
