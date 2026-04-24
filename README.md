@@ -1,5 +1,4 @@
-###DocCollab 2.0###
-
+## DocCollab 2.0 ## 
 **An Intelligent Clinical Workspace for Collaboration, Documentation, and Research**
 
 https://github.com/user-attachments/assets/bb771870-895c-43c9-a42c-e4df47e8023a
